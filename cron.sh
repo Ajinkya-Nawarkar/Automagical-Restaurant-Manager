@@ -4,7 +4,7 @@ cd /home/an839/public_html/SE/link1/Automagical-Restaurant-Manager
 
 git reset --hard HEAD
 LOCAL=git rev-parse HEAD
-REMOTE=git ls-remote https://github.com/Ajinkya-Nawarkar/DCSP_Project.git HEAD
+REMOTE=git ls-remote https://github.com/Ajinkya-Nawarkar/Automagical-Restaurant-Manager.git HEAD
 
 if ["$LOCAL" != "$REMOTE"]
 then
