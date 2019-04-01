@@ -2,7 +2,7 @@
 
   	require_once(dirname(__DIR__)."/Database/dbAPI.php");
 
-	class manager
+	class employee
 		{
 	    	private $database;
 	    	function __construct()
