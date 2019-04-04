@@ -10,7 +10,7 @@ if ["$LOCAL" != "$REMOTE"]
 then
     git checkout host_frontend_dev
     git checkout .
-    git pull origin host_frontend_Dev
+    git pull origin host_frontend_dev
 fi
 
 chmod -R 777 .
