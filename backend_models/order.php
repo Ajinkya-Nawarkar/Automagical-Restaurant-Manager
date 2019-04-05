@@ -6,6 +6,8 @@
 		{
 			private $OID;
 			private $isReady;
+			private $itemList = [];
+			private $itemListSerialized;
 			private $database;
 
 			function __construct()
@@ -35,14 +37,22 @@
 				$this->isReady = $ready;
 			}
 
-			function addToOrder($itemID)
+			function addItemToOrder($itemID)
 			{
-				$this->database->add_to_order($itemID);
+				$this->itemList[] = $itemID;
 			}
 
 			function addOrderToDB()
 			{
-				$this->database->addOrderToDB($this);
+				if (sizeof($this->itemList) > 0)
+				{
+					$this->itemListSerialized = serialize($this->itemList);
+					$this->database->addOrderToDB($this);
+				}
+				else
+				{
+					echo "Cannot add empty order to the database";
+				}
 			}
 
 	    }
