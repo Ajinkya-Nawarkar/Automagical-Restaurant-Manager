@@ -39,25 +39,25 @@
 		function setTableStateOpen()
 		{
 			$this->state = TableState::open;
-			$this->database->updateTableState($this->TID, $this->state);
+			$this->database->updateTableState($this);
 		}
 
 		function setTableStateReserved()
 		{
 			$this->state = TableState::reserved;
-			$this->database->updateTableState($this->TID, $this->state);
+			$this->database->updateTableState($this);
 		}
 
 		function setTableStateClean()
 		{
 			$this->state = TableState::clean;
-			$this->database->updateTableState($this->TID, $this->state);
+			$this->database->updateTableState($this);
 		}
 
 		function setTableStateUnclean()
 		{
 			$this->state = TableState::unclean;
-			$this->database->updateTableState($this->TID, $this->state);
+			$this->database->updateTableState($this);
 		}
 
     }
