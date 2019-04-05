@@ -32,9 +32,19 @@
 				return $this->database->get_OID_table_size();
 			}
 
+			function getOrderItemList()
+			{
+				return $this->itemList;
+			}
+
 			function setIsReady($ready)
 			{
 				$this->isReady = $ready;
+			}
+
+			function setOrderItemList($itemListSerialized)
+			{
+				$this->itemList = unserialize($itemListSerialized);
 			}
 
 			function addItemToOrder($itemID)
