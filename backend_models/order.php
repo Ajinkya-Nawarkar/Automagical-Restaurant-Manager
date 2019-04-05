@@ -40,6 +40,11 @@
 				$this->database->add_to_order($itemID);
 			}
 
+			function addOrderToDB()
+			{
+				$this->database->addOrderToDB($this);
+			}
+
 	    }
 
 ?>
