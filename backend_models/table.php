@@ -2,44 +2,64 @@
 
 	require_once(dirname(__DIR__)."/database/dbAPI.php");
 
+	// TODO: Database needs to have a function to 
+	// create and return a list of table objects.
+
+	class TableState
+	{
+		const open = 0;
+		const reserved = 1;
+		const clean = 2;
+		const unclean = 3;
+	}
+
 	class Table
+	{
+		private $TID;
+		private $state;
+		private $database;
+
+		function __construct($TID, $state)
 		{
-			private $TID;
-			private $isReady;
-			private $database;
+			$this->database = new dbAPI;
+			$this->TID = $TID;
+			$this->state = $state;
+		}
 
-			function __construct()
-			{
-				$this->database = new dbAPI;
-				$this->TID = getNewOID();
-				$this->isReady = false;
-			}
+		function getTID()
+		{
+			return $this->TID;
+		}
 
-			function getOID()
-			{
-				return $this->OID;
-			}
+		function getState()
+		{
+			return $this->state;
+		}
 
-			function getIsReady()
-			{
-				return $this->isReady;
-			}
+		function setTableStateOpen()
+		{
+			$this->state = TableState::open;
+			$this->database->updateTableState($this->TID, $this->state);
+		}
 
-			function getNewOID()
-			{
-				return $this->database->get_OID_table_size();
-			}
+		function setTableStateReserved()
+		{
+			$this->state = TableState::reserved;
+			$this->database->updateTableState($this->TID, $this->state);
+		}
 
-			function setIsReady($ready)
-			{
-				$this->isReady = $ready;
-			}
+		function setTableStateClean()
+		{
+			$this->state = TableState::clean;
+			$this->database->updateTableState($this->TID, $this->state);
+		}
 
-			function addToOrder($itemID)
-			{
-				$this->database->add_to_order($itemID);
-			}
+		function setTableStateUnclean()
+		{
+			$this->state = TableState::unclean;
+			$this->database->updateTableState($this->TID, $this->state);
+		}
 
-	    }
+    }
 
 ?>
