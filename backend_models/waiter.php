@@ -6,6 +6,7 @@
 	class Waiter extends Employee
 		{
 			private $isOccupied;
+			private $order;
 	    	private $database;
 
 	    	function __construct($EID)
@@ -26,9 +27,29 @@
 
 	    	function getTableAssignment()
 	    	{
-	    		$this->database->get_waiter_table_assignment($this->EID);
+	    		return $this->database->get_waiter_table_assignment($this->EID);
 	    	}
 
+			function initiateOrder()
+			{
+				$this->order = new Order();
+			}   
+
+			function addItemToOrder($itemID)
+			{
+				$this->order->addItemToOrder($itemID);
+			}	
+
+			function createOrder()
+			{
+				$this->order->addOrderToDB();
+			}
+
+			function setTableStateUnclean($TID)
+			{
+				$table_obj = new Table($TID);
+				$table_obj->setTableStateUnclean();
+			}
 
 	    }
 
