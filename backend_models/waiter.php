@@ -12,6 +12,7 @@
 	    	function __construct($EID)
 	    	{
 	    		$this->EID = $EID;
+	    		$this->isOccupied = false;
 	    		$this->database = new dbAPI;
 	    	}
 
