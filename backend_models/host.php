@@ -15,16 +15,16 @@
 
 	    	function assignTable()
 	    	{
-	    		$loop_counter = 1;
+	    		$loop_counter = 0;
 	    		do 
 	    		{
 		    		$open_tables = $this->database->get_open_tables_list();
 		    		$free_waiters = $this->database->get_free_waiter_ID_list();
 		    		$loop_criterion = sizeof($open_tables) + sizeof($free_waiters);
 		    		$loop_counter = $loop_counter + 1; 
-		    	}while(($loop_criterion < 2) && ($loop_counter <= 500));
+		    	}while(($loop_criterion < 2) && ($loop_counter < 500));
 
-		    	if ($loop_counter != 500)
+		    	if ($loop_counter < 500)
 		    	{
 		    		$open_table_TID = $open_tables[array_rand($open_tables)];
 		    		$table_obj = new Table($open_table_TID);
