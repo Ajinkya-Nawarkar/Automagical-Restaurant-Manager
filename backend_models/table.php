@@ -19,11 +19,11 @@
 		private $state;
 		private $database;
 
-		function __construct($TID, $state)
+		function __construct($TID)
 		{
 			$this->database = new dbAPI;
 			$this->TID = $TID;
-			$this->state = $state;
+			$this->state = TableState::open;
 		}
 
 		function getTID()
