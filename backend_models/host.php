@@ -17,7 +17,7 @@
 	    	{
 	    		$open_tables = $this->database->get_open_tables_list();
 	    		$open_table_TID = $open_tables[array_rand($open_tables)];
-	    		$table_obj = new Table($open_table_TID, TableState::open);
+	    		$table_obj = new Table($open_table_TID);
 
 	    		$free_waiters = $this->database->get_free_waiter_ID_list();
 	    		$free_waiter_EID = $free_waiters[array_rand($free_waiters)];
