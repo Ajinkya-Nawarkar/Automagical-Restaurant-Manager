@@ -5,12 +5,11 @@
 
 	class Host extends Employee
 		{
-	    	private $username;
 	    	private $database;
 
-	    	function __construct($username)
+	    	function __construct($EID)
 	    	{
-	    		$this->username = $username;
+	    		$this->EID = $EID;
 	    		$this->database = new dbAPI;
 	    	}
 
