@@ -9,8 +9,7 @@
 	{
 		const open = 0;
 		const reserved = 1;
-		const clean = 2;
-		const unclean = 3;
+		const unclean = 2;
 	}
 
 	class Table
@@ -45,12 +44,6 @@
 		function setTableStateReserved()
 		{
 			$this->state = TableState::reserved;
-			$this->database->updateTableState($this);
-		}
-
-		function setTableStateClean()
-		{
-			$this->state = TableState::clean;
 			$this->database->updateTableState($this);
 		}
 
