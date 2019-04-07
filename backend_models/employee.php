@@ -10,12 +10,12 @@
   	}
 
 	class Employee
-		{
-			private $EID;
+	{
+		private $EID;
 
-	    	function __construct()
-	    	{
-	    	}
-	    }
+    	function __construct()
+    	{
+    	}
+    }
 
 ?>
