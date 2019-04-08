@@ -10,11 +10,6 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <label>Please enter a number of guests:</label>
-                    <input type="number" name="num-guests" min="1" max="10"/>
-                    <input type="submit"/>
-                </div>
-                <div class="col">
                     <label>Available Tables:</label>
                     <div class="radio-butt">
                         <input type="radio" id="table1" name="tableSelect" value="t1">
