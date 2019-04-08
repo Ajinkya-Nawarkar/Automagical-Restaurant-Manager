@@ -2,6 +2,7 @@
 
 	require_once(dirname(__DIR__)."/Database/dbAPI.php");
 	require_once(dirname(__DIR__)."/Backend_Models/employee.php");
+	require_once(dirname(__DIR__)."/Backend_Models/order.php");
 
 	class Cook extends Employee
 		{
@@ -14,15 +15,15 @@
 				$this->database = new dbAPI;
 			}	
 
-			function getOrder()
+			function getRecentOrder()
 			{
-				return $this->database->get_order();
+				return $this->database->get_recent_order();
 			}
 			
-			function setOrderReady($OID)
+			function setIsReady($OID)
 			{
 				$this->order = new Order($OID);
-				$this->order->setOrderReady();
+				$this->order->setIsReady();
 			}
 		}
 
