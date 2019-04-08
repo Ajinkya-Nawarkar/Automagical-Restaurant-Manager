@@ -48,17 +48,24 @@ function choosePage()
  //$userInfo[1] = 1;
  if($_POST['username'] == host)
  $userInfo[1] = 1;
+ else if($_POST['username'] == waiter)
+ $userInfo[1] = 2;
+ else if($_POST['username'] == cook)
+ $userInfo[1] = 3;
+ else if($_POST['username'] == busser)
+ $userInfo[1] =4;
  else $userInfo[1] = 5;
+
   if($userInfo[1] == 0)
   echo ("<script>location.href='Manager.php'</script>");
   if($userInfo[1] == 1)
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
   else if($userInfo[1] == 2)
-  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/frontend_models/cook.php'</script>")
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/waiter.php'</script>");
   else if($userInfo[1] == 2)
-  echo ("<script>location.href='Cook.php'</script>");
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
   else if($userInfo[1] == 2)
-  echo ("<script>location.href='Busser.php'</script>");
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/gaurav/Automagical-Restaurant-Manager/frontend_models/busser.php'</script>");
   else echo $usernameErr;
 }
 ?>
