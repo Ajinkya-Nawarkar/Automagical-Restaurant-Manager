@@ -10,7 +10,7 @@
 <br>
 <h3>Login</h3>
 
-<form method = "post" action = "frontpage_dev.php">
+<form method = "post" action = "index.php">
   Username: <br>
   <input type = "text" name = "username">
   <br>
@@ -35,6 +35,7 @@ function choosePage()
  $username = isset($_POST['username']);
  //$db = new dbAPI;
  $userInfo = array("", "");
+ //$userInfo = $db->userPosition($username);
  
  //test
  $userInfo[0] = 2;
@@ -43,7 +44,7 @@ function choosePage()
   if($userInfo[1] == 0)
   echo ("<script>location.href='Manager.php'</script>");
   if($userInfo[1] == 1)
-  echo ("<script>location.href='Host.php'</script>");
+  echo ("<script>location.href='host.php'</script>");
   else if($userInfo[1] == 2)
   echo ("<script>location.href='Waiter.php'</script>");
   else if($userInfo[1] == 2)
