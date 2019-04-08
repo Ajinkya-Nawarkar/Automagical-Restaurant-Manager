@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/an839/public_html/SE/gaurav/Automagical-Restaurant-Manager
+cd /home/an839/public_html/SE/Automagical-Restaurant-Manager
 
 git reset --hard HEAD
 LOCAL=git rev-parse HEAD
