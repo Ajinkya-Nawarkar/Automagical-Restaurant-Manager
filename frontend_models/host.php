@@ -49,31 +49,32 @@
                         <input type="radio" id="waiter1" name="waiterSelect" value="w1">
                         <label for="waiter1">
                             <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 5
+                            Waiter 15
                         </label>
 
                         <input type="radio" id="waiter2" name="waiterSelect" value="w2">
                         <label for="waiter2">
                             <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 8
+                            Waiter 3
                         </label>
 
                         <input type="radio" id="waiter3" name="waiterSelect" value="w3">
                         <label for="waiter3">
                             <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 18
+                            Waiter 22
                         </label> 
+                        
                         
                         <input type="radio" id="waiter4" name="waiterSelect" value="w4">
                         <label for="waiter4">
                             <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 25
+                            Waiter 7
                         </label> 
                         
                         <input type="radio" id="waiter5" name="waiterSelect" value="w5">
                         <label for="waiter5">
                             <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 13
+                            Waiter 25
                         </label> 
                     </div>
                 </div>
