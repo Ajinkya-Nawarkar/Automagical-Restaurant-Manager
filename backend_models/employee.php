@@ -1,13 +1,21 @@
 <?php
 
-  	require_once(dirname(__DIR__)."/Database/dbAPI.php");
+  	class EmployeePositions
+  	{
+  		const manager = 0;
+  		const host = 1;
+  		const waiter = 2;
+  		const cook = 3;
+  		const busser = 4;
+  	}
 
-	class employee
-		{
-	    	private $database;
-	    	function __construct()
-	    	{
-	    	}
-	    }
+	class Employee
+	{
+		private $EID;
+
+    	function __construct()
+    	{
+    	}
+    }
 
 ?>
