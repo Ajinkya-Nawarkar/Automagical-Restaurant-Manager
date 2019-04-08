@@ -19,6 +19,8 @@
   <br><br>
   <input type = "submit" value = "Login" name = "submit">
   <br><br>
+  testing: 1
+  <br><br>
 </form>
 
 <?php
@@ -38,15 +40,17 @@ function choosePage()
  if (empty($_POST['username']))
  {
   $usernameErr = "Please fill in existing username";
-  echo $usernameErr;
  }
  //$db = new dbAPI;
  $userInfo = array("", "");
  //$userInfo = $db->userPosition($username);
  
  //test
- $userInfo[0] = 2;
+ //$userInfo[0] = 2;
+ //$userInfo[1] = 1;
+ if($_POST['username'] == host)
  $userInfo[1] = 1;
+ else $userInfo[1] = 5
 
   if($userInfo[1] == 0)
   echo ("<script>location.href='Manager.php'</script>");
@@ -58,6 +62,7 @@ function choosePage()
   echo ("<script>location.href='Cook.php'</script>");
   else if($userInfo[1] == 2)
   echo ("<script>location.href='Busser.php'</script>");
+  else echo $usernameErr;
 }
 
 ?>
