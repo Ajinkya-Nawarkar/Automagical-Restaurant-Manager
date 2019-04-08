@@ -20,7 +20,7 @@
 		{
 			$unclean_tables = $this->database->get_unclean_tables_list();
 
-			if($unclean_tables)
+			if (count($unclean_tables) > 0)
 			{
 				$unclean_table_TID = $unclean_tables[array_rand($unclean_tables)];
 				$table_obj = new Table($unclean_tables_TID);
