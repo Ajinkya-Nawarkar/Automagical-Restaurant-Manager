@@ -18,6 +18,7 @@
   <input type = "text" name = "password">
   <br><br>
   <input type = "submit" value = "Login" name = "submit">
+  <br><br>
 </form>
 
 <?php
@@ -33,6 +34,12 @@
 function choosePage() 
 {
  $username = isset($_POST['username']);
+ $usernameErr = "";
+ if (empty($_POST['username']))
+ {
+  $usernameErr = "Please fill in existing username";
+  echo $usernameErr;
+ }
  //$db = new dbAPI;
  $userInfo = array("", "");
  //$userInfo = $db->userPosition($username);
@@ -44,7 +51,7 @@ function choosePage()
   if($userInfo[1] == 0)
   echo ("<script>location.href='Manager.php'</script>");
   if($userInfo[1] == 1)
-  echo ("<script>location.href='host.php'</script>");
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
   else if($userInfo[1] == 2)
   echo ("<script>location.href='Waiter.php'</script>");
   else if($userInfo[1] == 2)
