@@ -27,7 +27,7 @@
 				return $unclean_table_TID;
 			}
 
-		return -1;
+			return -1;
 		}
 
 		function setTableStateOpen()
