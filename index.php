@@ -62,9 +62,9 @@ function choosePage()
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
   else if($userInfo[1] == 2)
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/waiter.php'</script>");
-  else if($userInfo[1] == 2)
-  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
-  else if($userInfo[1] == 2)
+  else if($userInfo[1] == 3)
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/frontend_models/cook.php'</script>");
+  else if($userInfo[1] == 4)
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/gaurav/Automagical-Restaurant-Manager/frontend_models/busser.php'</script>");
   else echo $usernameErr;
 }
