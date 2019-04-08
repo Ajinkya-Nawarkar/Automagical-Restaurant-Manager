@@ -50,7 +50,7 @@ function choosePage()
  //$userInfo[1] = 1;
  if($_POST['username'] == host)
  $userInfo[1] = 1;
- else $userInfo[1] = 5
+ else $userInfo[1] = 5;
 
   if($userInfo[1] == 0)
   echo ("<script>location.href='Manager.php'</script>");
