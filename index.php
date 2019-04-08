@@ -38,7 +38,7 @@ function choosePage()
  
  //test
  $userInfo[0] = 2;
- $userInfo[1] = 2;
+ $userInfo[1] = 1;
 
   if($userInfo[1] == 0)
   echo ("<script>location.href='Manager.php'</script>");
