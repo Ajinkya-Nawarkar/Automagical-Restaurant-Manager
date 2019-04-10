@@ -1,7 +1,10 @@
 <?php
 
-  	require_once(dirname(__DIR__)."/Database/dbAPI.php");
-	require_once(dirname(__DIR__)."/Backend_Models/employee.php");
+  	require_once(dirname(__DIR__)."/database/dbAPI.php");
+	require_once(dirname(__DIR__)."/backend_models/employee.php");
+	require_once(dirname(__DIR__)."/backend_models/table.php");
+	require_once(dirname(__DIR__)."/backend_models/waiter.php");
+
 
 	class Host extends Employee
 		{
