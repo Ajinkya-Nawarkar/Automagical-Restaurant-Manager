@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>FrontPage</title>
-<style> body {background-color: lightblue; margin-left: 30px;}</style>
+<style> body {background-color: lightblue; margin-left: 50px;}</style>
 </head>
 
 
@@ -22,7 +22,7 @@
   <br><br>
   <input type = "submit" value = "Login" name = "submit">
   <br><br>
-  testing: 0
+  testing: 1
   <br><br>
 </form>
 
