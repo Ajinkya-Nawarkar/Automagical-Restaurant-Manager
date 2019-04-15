@@ -8,9 +8,9 @@ REMOTE=git ls-remote https://github.com/Ajinkya-Nawarkar/Automagical-Restaurant-
 
 if ["$LOCAL" != "$REMOTE"]
 then
-    git checkout waiter_frontend_dev
+    git checkout busser_frontend_dev
     git checkout .
-    git pull origin waiter_frontend_dev
+    git pull origin busser_frontend_dev
 fi
 
 chmod -R 777 .
