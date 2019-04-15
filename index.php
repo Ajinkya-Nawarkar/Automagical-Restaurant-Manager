@@ -32,8 +32,7 @@
   choosePage();
  }
  
- 
- //$array = $dbretrivePos($username);
+
 function choosePage() 
 {
  $username = isset($_POST['username']);
