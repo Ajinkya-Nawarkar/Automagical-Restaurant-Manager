@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>FrontPage</title>
-<style> body {background-color: lightblue; margin-left: 100px;}</style>
+<style> body {background-color: lightblue; margin-left: 50px;}</style>
 </head>
 
 
