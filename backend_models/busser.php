@@ -22,9 +22,7 @@
 
 			if (count($unclean_tables) > 0)
 			{
-				$unclean_table_TID = $unclean_tables[array_rand($unclean_tables)];
-				$table_obj = new Table($unclean_tables_TID);
-				return $unclean_table_TID;
+				return $unclean_tables;
 			}
 
 			return -1;
@@ -32,7 +30,18 @@
 
 		function setTableStateOpen()
 		{
-			$this->table_obj->setTableStateOpen();
+
+			$unclean_tables = $this->database->get_unclean_tables_list();
+			$tableCount = 0;
+
+			while($tableCount < count($unclean_tables))
+			{
+				$unclean_table_TID = $unclean_tables[$tableCount];
+				$table_obj = new Table($unclean_table_TID);
+				$tableCount++;
+				$this->table_obj->setTableStateOpen();
+			}
+
 		}
 
 	}
