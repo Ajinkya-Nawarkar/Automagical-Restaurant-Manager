@@ -15,14 +15,14 @@
 
 <form method = "post" action = "index.php">
   Username: <br>
-  <input type = "text" name = "username" style = "color:lightblue;">
+  <input type = "text" name = "username" style = "background-color:lightblue;">
   <br>
   Password: <br>
-  <input type = "text" name = "password" style = "color:lightblue;">
+  <input type = "text" name = "password" style = "background-color:lightblue;">
   <br><br>
   <input type = "submit" value = "Login" name = "submit">
   <br><br>
-  testing: 0
+  testing: 1
   <br><br>
 </form>
 
