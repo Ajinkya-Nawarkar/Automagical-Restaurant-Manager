@@ -8,6 +8,12 @@
 </head>
 
 <body>
+
+<?php
+require_once('cook.php');
+$things1 = new cook;
+?>
+
 <h1>Cook</h1>
 <button onclick = "showOrder()">Show Order</button>
 <button onclick = "orderReady()">Order Ready</button>
