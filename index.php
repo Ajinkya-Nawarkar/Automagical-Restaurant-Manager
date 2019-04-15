@@ -3,9 +3,10 @@
 <html>
 <head>
 <title>FrontPage</title>
+<style> body {backgroud-color: lightblue;}</style>
 </head>
 
-<style> body {backgroud-color: lightblue;}</style>
+
 
 <body>
 <h1>Automagical Restaurant Manager</h1>
