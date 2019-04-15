@@ -4,6 +4,7 @@
 
 <head>
 <title>CookPage</title>
+<style> body {background-color: lightblue; margin-left: 100px;}</style>
 </head>
 
 <body>
