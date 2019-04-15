@@ -5,6 +5,8 @@
 <title>FrontPage</title>
 </head>
 
+<style> body {backgroud-color: lightblue;}</style>
+
 <body>
 <h1>Automagical Restaurant Manager</h1>
 <br>
