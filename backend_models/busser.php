@@ -30,8 +30,8 @@
 
 		function setTableStateOpen($unclean_table_TID)
 		{
-			$this->$table_obj = new Table($unclean_table_TID);
-			$this->$table_obj->setTableStateOpen();
+			$this->table_obj = new Table($unclean_table_TID);
+			$this->table_obj->setTableStateOpen();
 		}
 	}
 
