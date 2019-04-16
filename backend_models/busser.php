@@ -2,6 +2,7 @@
 
 	require_once(dirname(__DIR__)."/Database/dbAPI.php");
 	require_once(dirname(__DIR__)."/Backend_Models/employee.php");
+	require_once(dirname(__DIR__)."/Backend_Models/table.php");
 
 	class Busser extends Employee
 	{
@@ -24,26 +25,14 @@
 			{
 				return $unclean_tables;
 			}
-
 			return -1;
 		}
 
-		function setTableStateOpen()
+		function setTableStateOpen($unclean_table_TID)
 		{
-
-			$unclean_tables = $this->database->get_unclean_tables_list();
-			$tableCount = 0;
-
-			while($tableCount < count($unclean_tables))
-			{
-				$unclean_table_TID = $unclean_tables[$tableCount];
-				$table_obj = new Table($unclean_table_TID);
-				$tableCount++;
-				$this->table_obj->setTableStateOpen();
-			}
-
+			$this->$table_obj = new Table($unclean_table_TID);
+			$this->$table_obj->setTableStateOpen();
 		}
-
 	}
 
 ?>
