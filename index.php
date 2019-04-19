@@ -73,13 +73,13 @@ function choosePage()
   if($userInfo['position'] == "Manager")
   echo ("<script>location.href='Manager.php'</script>");
   if($userInfo['position'] == "Host")
-  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
-  else if($userInfo['position' == "Waiter")
-  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/waiter.php'</script>");
+  echo ("<script>location.href='frontend_models/host.php'</script>");
+  else if($userInfo['position'] == "Waiter")
+  echo ("<script>location.href='frontend_models/waiter.php'</script>");
   else if($userInfo['position'] == "Cook")
-  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/frontend_models/cook.php'</script>");
+  echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
   else if($userInfo['position'] == "Busser")
-  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/busser.php'</script>");
+  echo ("<script>location.href='frontend_models/busser.php'</script>");
   else echo $usernameErr;
 }
 ?>
