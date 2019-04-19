@@ -20,9 +20,6 @@
       echo count($result);
     }
 
-
-
-    
     // return employee
     public function getEmployee($username) {
       $query = "SELECT * FROM ARM_Employee WHERE username='". $username . "'";
@@ -61,6 +58,7 @@
       $result = $this->connection->query($query);
       // return
     }
+
     public function set_waiter_table($free_waiter_EID, $open_table_TID) {
       $query  = "UPDATE ARM_Waiter SET tid = '$open_table_TID' WHERE eid = '$free_waiter_EID'";
       $this->connection->query($query);
@@ -95,7 +93,6 @@
     // table.php
 
     public function updateTableState() {
-      
     }
 
     // waiter.php

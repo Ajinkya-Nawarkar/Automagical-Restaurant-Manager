@@ -33,9 +33,15 @@
 	    		return $this->database->get_waiter_table_assignment($this->EID);
 	    	}
 
+			function getNewOID()
+			{
+				return $this->database->get_OID_table_size();
+			}
+
 			function initiateOrder()
 			{
-				$this->order = new Order();
+				$OID = getNewOID();
+				$this->order = new Order($OID);
 			}   
 
 			function addItemToOrder($itemID)
