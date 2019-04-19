@@ -24,6 +24,9 @@
 </form>
 
 <?php
+require_once('database/dbAPI.php');
+           
+
  if(isset($_POST['submit']))
  {
     choosePage();
@@ -32,7 +35,8 @@
 
 function choosePage() 
 {
-  $username = isset($_POST['username']);
+
+  
   $usernameErr = "";
   if (empty($_POST['username']))
   {
@@ -40,9 +44,9 @@ function choosePage()
   }
   else
   {
+    $username = isset($_POST['username']);
     $db = new dbAPI;
-    $userInfo = $db->getEmployee($username);
- 
+    $userInfo = $db->getEmployee($_POST['username']);
  
     if($userInfo['position'] == "Manager")
         echo ("<script>location.href='Manager.php'</script>");
