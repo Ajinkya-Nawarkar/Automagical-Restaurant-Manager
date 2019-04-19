@@ -49,7 +49,7 @@
       }
       return -1; 
     }
-    
+
     // host.php
     public function get_open_tables_list() {
       $query = "SELECT tid FROM ARM_Table WHERE state='open'";
@@ -62,7 +62,8 @@
       // return
     }
     public function set_waiter_table($free_waiter_EID, $open_table_TID) {
-
+      $query  = "UPDATE ARM_Waiter SET tid = '$open_table_TID' WHERE eid = '$free_waiter_EID'";
+      $this->connection->query($query);
     }
 
     // manager.php
