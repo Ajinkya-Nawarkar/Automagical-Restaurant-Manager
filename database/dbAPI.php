@@ -58,7 +58,6 @@
     public function set_waiter_table($free_waiter_EID, $open_table_TID) {
       $query = "UPDATE ARM_Waiter SET tid = '$open_table_TID' WHERE eid = '$free_waiter_EID'";
       $this->connection->query($query);
-      return $result;
     }
 
 
