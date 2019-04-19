@@ -13,13 +13,8 @@
         die($this->connection->connect_error);
       }
     }
-<<<<<<< HEAD
     
     // return employee (for login.php)
-=======
-
-    // return employee
->>>>>>> a697b51a80d5c60e9d8b0e08c44886e014cdcdee
     public function getEmployee($username) {
       $query = "SELECT * FROM ARM_Employee WHERE username='". $username . "'";
       $result = $this->connection->query($query);
@@ -39,7 +34,12 @@
     public function get_recent_order() { 
       $query = "SELECT * FROM ARM_Order WHERE isReady=0";
       $result = $this->connection->query($query);
-      return $result
+      while($row = $result->fetch_array())
+      {
+        if ($row['isReady'] == 0)
+          return $row;
+      }
+      return -1; 
     }
 
 
