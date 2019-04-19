@@ -13,15 +13,6 @@
         die($this->connection->connect_error);
       }
     }
-
-    public function test() {
-      $query = "SELECT tid FROM ARM_Table WHERE tid=1";
-      $result = $this->connection->query($query);
-      echo count($result);
-    }
-
-
-
     
     // return employee
     public function getEmployee($username) {
