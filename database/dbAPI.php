@@ -38,12 +38,18 @@
     }
 
     // cook.php
-    public function get_recent_order() { // oldest order not set to ready
+    public function get_recent_order() { 
       $query = "SELECT * FROM ARM_Order WHERE isReady=0";
       $result = $this->connection->query($query);
-      $result = $result->fetch_assoc();
-      
+
+      while($row = $result->fetch_array())
+      {
+        if ($row['isReady'] == 0)
+          return $row;
+      }
+      return -1; 
     }
+    
     // host.php
     public function get_open_tables_list() {
       $query = "SELECT tid FROM ARM_Table WHERE state='open'";
