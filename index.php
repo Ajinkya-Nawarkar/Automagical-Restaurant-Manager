@@ -48,7 +48,7 @@ function choosePage()
  //test
  //$userInfo[0] = 2;
  //$userInfo[1] = 1;
- /*if($_POST['username'] == host)
+ if($_POST['username'] == host)
  $userInfo[1] = 1;
  else if($_POST['username'] == waiter)
  $userInfo[1] = 2;
@@ -56,9 +56,21 @@ function choosePage()
  $userInfo[1] = 3;
  else if($_POST['username'] == busser)
  $userInfo[1] =4;
- else $userInfo[1] = 5;*/
+ else $userInfo[1] = 5;
 
-  if($userInfo['position'] == "Manager")
+ if($userInfo[0])
+  echo ("<script>location.href='Manager.php'</script>");
+  if($userInfo[1] == 1)
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
+  else if($userInfo[2] ==2)
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/waiter.php'</script>");
+  else if($userInfo[3] == 3)
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/frontend_models/cook.php'</script>");
+  else if($userInfo[4] == 4)
+  echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/busser.php'</script>");
+  else echo $usernameErr;
+
+ /* if($userInfo['position'] == "Manager")
   echo ("<script>location.href='Manager.php'</script>");
   if($userInfo['position'] == "Host")
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
@@ -69,7 +81,7 @@ function choosePage()
   else if($userInfo['position'] == "Busser")
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/busser.php'</script>");
   else echo $usernameErr;
-}
+}*/
 ?>
 </body>
 </html>
