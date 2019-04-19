@@ -48,7 +48,7 @@ function choosePage()
  //test
  //$userInfo[0] = 2;
  //$userInfo[1] = 1;
- if($_POST['username'] == host)
+ /*if($_POST['username'] == host)
  $userInfo[1] = 1;
  else if($_POST['username'] == waiter)
  $userInfo[1] = 2;
@@ -68,9 +68,9 @@ function choosePage()
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/frontend_models/cook.php'</script>");
   else if($userInfo[4] == 4)
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/busser.php'</script>");
-  else echo $usernameErr;
+  else echo $usernameErr;*/
 
- /* if($userInfo['position'] == "Manager")
+  if($userInfo['position'] == "Manager")
   echo ("<script>location.href='Manager.php'</script>");
   if($userInfo['position'] == "Host")
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/host.php'</script>");
@@ -81,7 +81,7 @@ function choosePage()
   else if($userInfo['position'] == "Busser")
   echo ("<script>location.href='http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/frontend_models/busser.php'</script>");
   else echo $usernameErr;
-}*/
+}
 ?>
 </body>
 </html>
