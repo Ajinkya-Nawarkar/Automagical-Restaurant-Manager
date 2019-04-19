@@ -26,36 +26,36 @@
 <?php
  if(isset($_POST['submit']))
  {
-  choosePage();
+    choosePage();
  }
  
 
 function choosePage() 
 {
- $username = isset($_POST['username']);
- $usernameErr = "";
- if (empty($_POST['username']))
- {
-  $usernameErr = "Please fill in existing username";
- }
- else
- {
- $db = new dbAPI;
- $userInfo = $db->getEmployee($username);
+  $username = isset($_POST['username']);
+  $usernameErr = "";
+  if (empty($_POST['username']))
+  {
+   $usernameErr = "Please fill in existing username";
+  }
+  else
+  {
+    $db = new dbAPI;
+    $userInfo = $db->getEmployee($username);
  
  
-  if($userInfo['position'] == "Manager")
-  echo ("<script>location.href='Manager.php'</script>");
-  if($userInfo['position'] == "Host")
-  echo ("<script>location.href='frontend_models/host.php'</script>");
-  else if($userInfo['position'] == "Waiter")
-  echo ("<script>location.href='frontend_models/waiter.php'</script>");
-  else if($userInfo['position'] == "Cook")
-  echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
-  else if($userInfo['position'] == "Busser")
-  echo ("<script>location.href='frontend_models/busser.php'</script>");
-  else echo $usernameErr;
-}
+    if($userInfo['position'] == "Manager")
+        echo ("<script>location.href='Manager.php'</script>");
+    if($userInfo['position'] == "Host")
+        echo ("<script>location.href='frontend_models/host.php'</script>");
+    else if($userInfo['position'] == "Waiter")
+        echo ("<script>location.href='frontend_models/waiter.php'</script>");
+    else if($userInfo['position'] == "Cook")
+        echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
+    else if($userInfo['position'] == "Busser")
+       echo ("<script>location.href='frontend_models/busser.php'</script>");
+    else echo $usernameErr;
+  }
 }
 ?>
 </body>
