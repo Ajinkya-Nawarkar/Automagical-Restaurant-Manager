@@ -24,6 +24,8 @@
 </form>
 
 <?php
+require_once('dbAPI.php');
+
  if(isset($_POST['submit']))
  {
     choosePage();
