@@ -24,7 +24,7 @@
 </form>
 
 <?php
-require_once('database/dbAPI.php');
+
 
  if(isset($_POST['submit']))
  {
