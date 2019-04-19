@@ -40,7 +40,9 @@
     // cook.php
     public function get_recent_order() { // oldest order not set to ready
       $query = "SELECT * FROM ARM_Order WHERE isReady=0";
-    
+      $result = $this->connection->query($query);
+      $result = $result->fetch_assoc();
+      
     }
     // host.php
     public function get_open_tables_list() {
@@ -86,7 +88,7 @@
     // table.php
 
     public function updateTableState() {
-      // ask about this one
+      
     }
 
     // waiter.php
