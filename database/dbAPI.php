@@ -14,12 +14,6 @@
       }
     }
 
-    public function test() {
-      $query = "SELECT tid FROM ARM_Table WHERE tid=1";
-      $result = $this->connection->query($query);
-      echo count($result);
-    }
-
     // return employee
     public function getEmployee($username) {
       $query = "SELECT * FROM ARM_Employee WHERE username='". $username . "'";
