@@ -52,12 +52,13 @@
     public function get_free_waiter_ID_list() {
       $query = "SELECT eid FROM ARM_Waiter WHERE occupied=0";
       $result = $this->connection->query($query);
-      return $result
+      return $result;
     }
 
     public function set_waiter_table($free_waiter_EID, $open_table_TID) {
       $query = "UPDATE ARM_Waiter SET tid = '$open_table_TID' WHERE eid = '$free_waiter_EID'";
       $this->connection->query($query);
+      return $result;
     }
 
 
@@ -74,32 +75,40 @@
       return $result;
     }
     public function remove_employee($eid) {
-      $query = "DE"
+      $query = "DELETE FROM `ARM_Employee` WHERE `ARM_Employee`.`eid` = " . $eid;
+      $this->connection->query($query);
     }
     public function get_all_employees() {
-
+      $query = "SELECT * FROM ARM_Employee";
+      $result = $this->connection->query($query);
+      return $result;
     }
 
     // order.php
     public function get_OID_table_size() {
       $query = "SELECT COUNT(*) FROM ARM_Order";
       $result = $this->connection->query($query);
-      echo $result;
+      return $result;
     }
     public function addOrderToDB($order) {
       // gotta make sure this will work
+      
     }
     public function setOrderIsReady($oid, $ready) {
-
+      $query = "UPDATE `ARM_Order` SET `isReady` = '". $ready ."' WHERE `ARM_Order`.`oid` = " . $oid;
+      $this->connection->query($query);
     }
     // table.php
 
-    public function updateTableState() {
+    public function updateTableState() {  // I'm not sure how this one needs to
+      // echo $table->state;              // be implemented
     }
 
     // waiter.php
     public function get_waiter_table_assignment($eid) {
-
+      $query = "SELECT tid FROM ARM_Waiter WHERE eid=" . $eid;
+      $result = $this->connection->query($query);
+      return $result;
     }
   }
 ?>
