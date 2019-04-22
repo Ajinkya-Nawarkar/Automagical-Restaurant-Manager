@@ -101,6 +101,13 @@
                 }
                 $waiter->createOrder();
             }
+            if (isset($_POST['clear'])){
+                $tid = $waiter->getTableAssignment();
+                $waiter->setTableStateUnclean($tid);
+            }
+            if (isset($_POST['refresh'])) {
+                header("Refresh:0");
+            }
         ?>
                 </div>
             </div>

@@ -102,13 +102,13 @@
 
       switch ($table->getState()) {
         case 0:
-          $st8 = 'open';
+          $st8 = "open";
           break;
         case 1:
-          $st8 = 'reserved';
+          $st8 = "reserved";
           break;
         case 2:
-          $st8 = 'unclean';
+          $st8 = "unclean";
           break;
       }
 
