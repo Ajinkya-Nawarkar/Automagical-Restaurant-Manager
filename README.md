@@ -1,13 +1,14 @@
 # Automagical-Restaurant-Manager (Intro. SE project - Spring 2019)
 
 ## phpMyAdmin Database Account Details
-*Username* : 
-*Password* :
+*Server* : sql9.freemysqlhosting.net
+*Name* : sql9288709
+*Username* : sql9288709
+*Password* : gGdDxMZUzg
+*Port number* : 3306
+http://www.phpmyadmin.co/
 
-## [Website - tracking mike](http://pluto.cse.msstate.edu/~an839/SE/mike/Automagical-Restaurant-Manager/)
-## [Website - tracking cern](http://pluto.cse.msstate.edu/~an839/SE/cern/Automagical-Restaurant-Manager/)
-## [Website - tracking garrtt](http://pluto.cse.msstate.edu/~an839/SE/garrtt/Automagical-Restaurant-Manager/)
-## [Website - tracking gaurav](http://pluto.cse.msstate.edu/~an839/SE/gaurav/Automagical-Restaurant-Manager/)
+## [Website - tracking master](http://pluto.cse.msstate.edu/~an839/SE/Automagical-Restaurant-Manager/)
 ##### You would need access to Mississippi State University's pluto server to view this website.
 
 ## Directory Structure:
@@ -43,7 +44,12 @@
 
 ## Database Dummy Accounts:
 
-        *Users*        
-
+        *Users* 
+        host                    - Host user
+        waiter0                 - Waiter user
+        waiter1                 - Waiter user
+        cook                    - Cook user
+        busser                  - Busser user
+        manager                 - Manager user
 
 
