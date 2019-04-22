@@ -1,7 +1,9 @@
 <?php
 
-  	require_once(dirname(__DIR__)."/Database/dbAPI.php");
-	require_once(dirname(__DIR__)."/Backend_Models/employee.php");
+  	require_once(dirname(__DIR__)."/database/dbAPI.php");
+	require_once(dirname(__DIR__)."/backend_models/employee.php");
+	require_once(dirname(__DIR__)."/backend_models/order.php");
+	require_once(dirname(__DIR__)."/backend_models/table.php");
 
 	class Waiter extends Employee
 		{
@@ -31,9 +33,15 @@
 	    		return $this->database->get_waiter_table_assignment($this->EID);
 	    	}
 
+			function getNewOID()
+			{
+				return $this->database->get_OID_table_size();
+			}
+
 			function initiateOrder()
 			{
-				$this->order = new Order();
+				$OID = getNewOID();
+				$this->order = new Order($OID);
 			}   
 
 			function addItemToOrder($itemID)
