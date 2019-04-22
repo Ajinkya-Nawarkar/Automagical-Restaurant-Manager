@@ -37,7 +37,7 @@
 	    	function getTableAssignment()
 	    	{
 	    		$result =  $this->database->get_waiter_table_assignment($this->EID);
-	    		$row = $result->fetch_array())
+	    		$row = $result->fetch_array();
 	    		return $row[0];
 	    	}
 
