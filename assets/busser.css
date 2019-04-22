@@ -1,0 +1,27 @@
+body {
+  background-color: lightblue;
+}
+.container{
+    min-width:100%;
+}
+
+label {
+    display:block;
+    background-color:#ddd;
+    padding: 10px 20px;
+    font-family:Arial;
+    font-size:16px;
+    border: 2px solid #444;
+    border-radius: 10px;    
+}
+
+button{
+    top:30%;
+    bottom:70%;
+    position:relative;
+}
+
+.radio-img{
+    max-width:80px;
+    margin-right:20px;
+}

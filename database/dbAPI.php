@@ -24,7 +24,7 @@
     public function get_unclean_tables_list() {
       $query = "SELECT * FROM ARM_Table WHERE state='unclean'";
       $result = $this->connection->query($query);
-      return $result->fetch_assoc();
+      return $result;
     }
 
     // cook.php
