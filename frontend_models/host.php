@@ -14,8 +14,11 @@
                     <label>Available Tables:</label>
                     <div class="radio-butt">
                         <?php
+                        session_start();
+                        $eid = $_SESSION['hosteid'];
+                        
                         include "../backend_models/host.php";
-                        $host = new Host(1);
+                        $host = new Host($eid);
                         $tids = $host->getOpenTables();
                         $take_five = [];
                         if(count($tids) > 5){
@@ -142,19 +145,24 @@
                 </div>
                              
                 <div class="col">
-                        <input type="submit" name="submit" value="Get Selected Values" />
+                    <input type="submit" name="wait" value="Set Waiter" />
+                    <input type="submit" name="refresh" value="Refresh"/>
                 </div>
             </div>
         </div>
     </form>
     <?php
-        if (isset($_POST['submit'])) {
+        if (isset($_POST['wait'])) {
             if (isset($_POST['tableSelect']) && isset($_POST['waiterSelect'])){
                 $host->assignTable($_POST['tableSelect'], $_POST['waiterSelect']);
+                header("Refresh:0");
             }
             else{
                 echo "Please select both a table and a waiter.";
             }
+        }
+        if (isset($_POST['refresh'])) {
+            header("Refresh:0");
         }
     ?>
     </body>

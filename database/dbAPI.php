@@ -98,20 +98,23 @@
     }
 
     // table.php
-    public function updateTableState($table) {  // I'm not sure how this one needs to
+    public function updateTableState($table) {  
+
       switch ($table->getState()) {
         case 0:
-          $st8 = "open";
+          $st8 = 'open';
           break;
         case 1:
-          $st8 = "reserved";
+          $st8 = 'reserved';
           break;
         case 2:
-          $st8 = "unclean";
+          $st8 = 'unclean';
           break;
       }
+
       $myTid = $table->getTID();
-      $query = "UPDATE `ARM_Table` SET `state` = '$st8' WHERE `ARM_TABLE`.`tid` = 'myTid'";
+
+      $query = "UPDATE ARM_Table SET state = '$st8' WHERE tid = '$myTid'";
       $this->connection->query($query);
     }
 
@@ -121,5 +124,13 @@
       $result = $this->connection->query($query);
       return $result;
     }
+
+    public function setWaiterIsOccupied($waiter_obj) {
+      $occupied = $waiter_obj->getIsOccupied();
+      $eid = $waiter_obj->getEID();
+      $query = "UPDATE ARM_Waiter SET isOccupied = '$occupied' WHERE eid = '$eid'";
+      $this->connection->query($query);
+    }
+
   }
 ?>
