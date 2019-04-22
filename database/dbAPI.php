@@ -1,5 +1,4 @@
 <?php
-
   class dbAPI {
     public $connection;
     
@@ -21,14 +20,12 @@
       return $result->fetch_assoc();
     }
 
-
     // busser.php
     public function get_unclean_tables_list() {
       $query = "SELECT * FROM ARM_Table WHERE state='unclean'";
       $result = $this->connection->query($query);
       return $result->fetch_assoc();
     }
-
 
     // cook.php
     public function get_recent_order() { 
@@ -59,7 +56,6 @@
       $this->connection->query($query);
     }
 
-
     // manager.php
     public function get_employee_table_size() {
       // We don't need this one since eid auto increments
@@ -81,7 +77,6 @@
       $result = $this->connection->query($query);
       return $result;
     }
-
     // order.php
     public function get_OID_table_size() {
       $query = "SELECT COUNT(*) FROM ARM_Order";
@@ -121,7 +116,6 @@
       $query = "UPDATE ARM_Table SET state = '$st8' WHERE tid = '$myTid'";
       $this->connection->query($query);
     }
-
     // waiter.php
     public function get_waiter_table_assignment($eid) {
       $query = "SELECT tid FROM ARM_Waiter WHERE eid = '$eid'";

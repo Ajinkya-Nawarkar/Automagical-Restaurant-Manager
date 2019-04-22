@@ -45,22 +45,40 @@
 	  	}
 	  	else
 	  	{
-	    	$username = isset($_POST['username']);
 	    	$db = new dbAPI;
-	    	$userInfo = $db->getEmployee($_POST['username']);
+            $userInfo = $db->getEmployee($_POST['username']);
+            session_start();
 	 
 	    	if($userInfo['position'] == "Manager")
 	        	echo ("<script>location.href='frontend_models/manager.php'</script>");
-	    	else if($userInfo['position'] == "Host")
-	        	echo ("<script>location.href='frontend_models/host.php'</script>");
-	    	else if($userInfo['position'] == "Waiter")
-	        	echo ("<script>location.href='frontend_models/waiter.php'</script>");
-	    	else if($userInfo['position'] == "Cook")
-	       		echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
-	    	else if($userInfo['position'] == "Busser")
-	       		echo ("<script>location.href='frontend_models/busser.php'</script>");
+            else if($userInfo['position'] == "Host")
+            {
+                $_SESSION['hosteid'] = $userInfo['eid'];
+                header("Location:frontend_models/host.php");
+                echo ("<script>location.href='frontend_models/host.php>'</script>");
+            }
+            else if($userInfo['position'] == "Waiter")
+            { 
+                $_SESSION['waitereid'] = $userInfo['eid'];
+                header("Location:frontend_models/watier.php");
+                echo ("<script>location.href='frontend_models/waiter.php'</script>");
+            }
+            else if($userInfo['position'] == "Cook")
+            {
+                $_SESSION['cookeid'] = $userInfo['eid'];
+                header("Location:frontend_models/ViewOrders.php");
+                echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
+            }
+            else if($userInfo['position'] == "Busser")
+            {
+                $_SESSION['bussereid'] = $userInfo['eid'];
+                header("Location:frontend_models/busser.php");
+                echo ("<script>location.href='frontend_models/busser.php'</script>");
+            }
 	    	else 
-	    		$usernameErr = "Invalid login. Please fill in a valid username!";
+                $usernameErr = "Invalid login. Please fill in a valid username!";
+                
+                exit();
 	  	}
 	  	echo $usernameErr;
 	}

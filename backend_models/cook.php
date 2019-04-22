@@ -8,6 +8,7 @@
 		{
 			private $order;
 			private $database;
+			private $ready = 1;
 
 			function __construct($EID)
 			{	
@@ -23,7 +24,7 @@
 			function setIsReady($OID)
 			{
 				$this->order = new Order($OID);
-				$this->order->setIsReady();
+				$this->order->setIsReady($this->ready);
 			}
 		}
 
