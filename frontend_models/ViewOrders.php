@@ -11,33 +11,28 @@
 
 <h1>Cook</h1>
 <input type="button" onclick = "setOrderReady()" value = "Order Ready">
+<br><br>
 
 <?php
-require_once('backend_models/cook.php');
+require_once('../backend_models/cook.php');
 
-$things1 = new Cook;
-$order = $things1->getRecentOrder();
+session_start();
+$EID = $_SESSION['cookeid'];
+echo "Employee ID: " . $EID . "<br><br>";
+$things1 = new Cook($EID);
+$order = $things1->getRecentOrder($EID);
 $OID = $order['oid'];
+echo $OID;
 
-while ($order == -1)
-{
-    check_for_new_orders();
-}
-
-function check_for_new_orders()
-{
-    while (isset($_POST['button']) == 0)
-    {
-        $itemListDeserialized = deserialize($order['itemList']);
-        echo "Item for order " . $OID . ": ";
-        echo "<br>";
-        echo $itemListDeserialized;
-    }
-}
+$itemListDeserialized = unserialize($order['itemList']);
+echo "Item for order #" . $OID . " : ";
+echo "<br>";
+echo $itemListDeserialized;
     
 function setOrderReady($OID)
 {
     $things1->setIsReady($OID);
+    echo ("<script> location.href='frontend_models/ViewOrders.php' </script>");
 }
 ?>
 
