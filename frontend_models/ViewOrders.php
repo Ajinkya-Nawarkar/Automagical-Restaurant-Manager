@@ -10,7 +10,10 @@
 <body>
 
 <h1>Cook</h1>
-<input type="button" onclick = "setOrderReady()" value = "Order Ready">
+<form method = "post">
+<input type = "submit" name = "refresh" value = "Check Order">
+<input type = "submit" name = "ready" value = "Order Ready">
+</form>
 <br><br>
 
 <?php
@@ -22,17 +25,27 @@ echo "Employee ID: " . $EID . "<br><br>";
 $things1 = new Cook($EID);
 $order = $things1->getRecentOrder($EID);
 $OID = $order['oid'];
-echo $OID;
 
-$itemListDeserialized = unserialize($order['itemList']);
+if($order == -1)
+echo "there is no order right now";
+else{
+$itemListDeserialized = $order['itemList'];
 echo "Item for order #" . $OID . " : ";
-echo "<br>";
+echo "<br><br>";
 echo $itemListDeserialized;
-    
-function setOrderReady($OID)
+
+
+if(isset($_POST['ready']))
+setOrderReady($OID, $things1);
+
+if(isset($POST['refresh']))
+header("refresh: 0");
+}
+
+function setOrderReady($OID, $things1)
 {
     $things1->setIsReady($OID);
-    echo ("<script> location.href='frontend_models/ViewOrders.php' </script>");
+    echo "<br><br>The order # " . $OID . " has been set ready";
 }
 ?>
 
