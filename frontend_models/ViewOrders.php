@@ -29,7 +29,7 @@ $OID = $order['oid'];
 if($order == -1)
 echo "there is no order right now";
 else{
-$itemListDeserialized = $order['itemList'];
+$itemListDeserialized = unserialize($order['itemList']);
 echo "Item for order #" . $OID . " : ";
 echo "<br><br>";
 echo $itemListDeserialized;
