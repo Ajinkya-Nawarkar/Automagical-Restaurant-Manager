@@ -54,7 +54,6 @@
       $result = $this->connection->query($query);
       return $result;
     }
-
     public function set_waiter_table($free_waiter_EID, $open_table_TID) {
       $query = "UPDATE ARM_Waiter SET tid = '$open_table_TID' WHERE eid = '$free_waiter_EID'";
       $this->connection->query($query);
@@ -94,19 +93,30 @@
       
     }
     public function setOrderIsReady($oid, $ready) {
-      $query = "UPDATE `ARM_Order` SET `isReady` = '$ready' WHERE `ARM_Order`.`oid` = '$eid'";
+      $query = "UPDATE `ARM_Order` SET `isReady` = '$ready' WHERE `ARM_Order`.`oid` = '$oid'";
       $this->connection->query($query);
     }
 
     // table.php
     public function updateTableState($table) {  // I'm not sure how this one needs to
-      $query = "UPDATE `ARM_Table` SET `state` = '$table->state' WHERE `ARM_TABLE`.`tid` = '$table->TID'";
+      switch ($table->getState()) {
+        case 0:
+          $st8 = "open";
+          break;
+        case 1:
+          $st8 = "reserved";
+          break;
+        case 2:
+          $st8 = "unclean";
+          break;
+      }
+      $query = "UPDATE `ARM_Table` SET `state` = '$st8' WHERE `ARM_TABLE`.`tid` = '$table->getTID()'";
       $this->connection->query($query);
     }
 
     // waiter.php
     public function get_waiter_table_assignment($eid) {
-      $query = "SELECT tid FROM ARM_Waiter WHERE eid=" . $eid;
+      $query = "SELECT tid FROM ARM_Waiter WHERE eid = '$eid'";
       $result = $this->connection->query($query);
       return $result;
     }
