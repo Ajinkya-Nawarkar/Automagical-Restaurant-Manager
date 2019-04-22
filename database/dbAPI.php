@@ -19,12 +19,14 @@
       $result = $this->connection->query($query);
       return $result->fetch_assoc();
     }
+
     // busser.php
     public function get_unclean_tables_list() {
       $query = "SELECT * FROM ARM_Table WHERE state='unclean'";
       $result = $this->connection->query($query);
       return $result->fetch_assoc();
     }
+
     // cook.php
     public function get_recent_order() { 
       $query = "SELECT * FROM ARM_Order WHERE isReady=0";
@@ -36,6 +38,8 @@
       }
       return -1; 
     }
+
+
     // host.php
     public function get_open_tables_list() {
       $query = "SELECT tid FROM ARM_Table WHERE state='open'";
@@ -43,7 +47,7 @@
       return $result;
     }
     public function get_free_waiter_ID_list() {
-      $query = "SELECT eid FROM ARM_Waiter WHERE occupied=0";
+      $query = "SELECT eid FROM ARM_Waiter WHERE isOccupied=0";
       $result = $this->connection->query($query);
       return $result;
     }
@@ -51,6 +55,7 @@
       $query = "UPDATE ARM_Waiter SET tid = '$open_table_TID' WHERE eid = '$free_waiter_EID'";
       $this->connection->query($query);
     }
+
     // manager.php
     public function get_employee_table_size() {
       // We don't need this one since eid auto increments
@@ -76,31 +81,39 @@
     public function get_OID_table_size() {
       $query = "SELECT COUNT(*) FROM ARM_Order";
       $result = $this->connection->query($query);
-      return $result;
+
+      $row = $result->fetch_assoc();
+      return $row['COUNT(*)'];
     }
     public function addOrderToDB($order) {
       // gotta make sure this will work
-      
+      $oid = $order->getOID();
+      $isReady = $order->getIsReady();
+      $itemListSerialized = $order->getOrderItemListSerialized();
+      $query = "INSERT INTO `ARM_Order` (`oid`, `isReady`, `itemList`) VALUES (NULL, '$isReady', '$itemListSerialized');"
+      $this->connection->query($query);
     }
     public function setOrderIsReady($oid, $ready) {
       $query = "UPDATE `ARM_Order` SET `isReady` = '$ready' WHERE `ARM_Order`.`oid` = '$oid'";
       $this->connection->query($query);
     }
+
     // table.php
-    public function updateTableState($table) {  // I'm not sure how this one needs to
+    public function updateTableState($table) {  
+
       switch ($table->getState()) {
         case 0:
-          $st8 = "open";
+          $st8 = 'open';
           break;
         case 1:
-          $st8 = "reserved";
+          $st8 = 'reserved';
           break;
         case 2:
-          $st8 = "unclean";
+          $st8 = 'unclean';
           break;
       }
-      $tid = $table->getTID();
-      $query = "UPDATE `ARM_Table` SET `state` = '$st8' WHERE `ARM_TABLE`.`tid` = '$tid'";
+      $myTid = $table->getTID();
+      $query = "UPDATE ARM_Table SET state = '$st8' WHERE tid = '$myTid'";
       $this->connection->query($query);
     }
     // waiter.php
@@ -109,5 +122,13 @@
       $result = $this->connection->query($query);
       return $result;
     }
+
+    public function setWaiterIsOccupied($waiter_obj) {
+      $occupied = $waiter_obj->getIsOccupied();
+      $eid = $waiter_obj->getEID();
+      $query = "UPDATE ARM_Waiter SET isOccupied = '$occupied' WHERE eid = '$eid'";
+      $this->connection->query($query);
+    }
+
   }
 ?>

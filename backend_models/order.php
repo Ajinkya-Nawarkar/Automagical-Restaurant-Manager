@@ -7,6 +7,7 @@
 			private $itemList = [];
 			private $itemListSerialized;
 			private $database;
+    
 			function __construct($OID)
 			{
 				$this->database = new dbAPI;
@@ -21,10 +22,16 @@
 			{
 				return $this->isReady;
 			}
+
 			function getOrderItemList()
 			{
 				return $this->itemList;
-			}
+      }
+      
+      function getOrderItemListSerialized() {
+        return $this->itemListSerialized;
+      }
+
 			function setIsReady($ready)
 			{
 				$this->isReady = $ready;
