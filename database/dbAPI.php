@@ -94,7 +94,7 @@
       $oid = $order->getOID();
       $isReady = $order->getIsReady();
       $itemListSerialized = $order->getOrderItemListSerialized();
-      $query = "INSERT INTO `ARM_Order` (`oid`, `isReady`, `itemList`) VALUES (NULL, '$isReady', '$itemListSerialized');"
+      $query = "INSERT INTO `ARM_Order` (`oid`, `isReady`, `itemList`) VALUES (NULL, '$isReady', '$itemListSerialized')";
       $this->connection->query($query);
     }
     public function setOrderIsReady($oid, $ready) {
@@ -116,6 +116,7 @@
           $st8 = 'unclean';
           break;
       }
+
       $myTid = $table->getTID();
       $query = "UPDATE ARM_Table SET state = '$st8' WHERE tid = '$myTid'";
       $this->connection->query($query);
