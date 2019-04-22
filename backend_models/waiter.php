@@ -36,7 +36,9 @@
 
 	    	function getTableAssignment()
 	    	{
-	    		return $this->database->get_waiter_table_assignment($this->EID);
+	    		$result =  $this->database->get_waiter_table_assignment($this->EID);
+	    		$row = $result->fetch_array())
+	    		return $row[0];
 	    	}
 
 			function getNewOID()
