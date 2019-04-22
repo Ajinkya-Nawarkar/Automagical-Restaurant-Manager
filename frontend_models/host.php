@@ -14,8 +14,11 @@
                     <label>Available Tables:</label>
                     <div class="radio-butt">
                         <?php
+                        session_start();
+                        $eid = $_SESSION['hosteid'];
+                        
                         include "../backend_models/host.php";
-                        $host = new Host(1);
+                        $host = new Host($eid);
                         $tids = $host->getOpenTables();
                         $take_five = [];
                         if(count($tids) > 5){
@@ -142,8 +145,8 @@
                 </div>
                              
                 <div class="col">
-                        <input type="submit" name="wait" value="Set Waiter" />
-                        <input type="submit" name="refresh" value="Refresh"/>
+                    <input type="submit" name="wait" value="Set Waiter" />
+                    <input type="submit" name="refresh" value="Refresh"/>
                 </div>
             </div>
         </div>
