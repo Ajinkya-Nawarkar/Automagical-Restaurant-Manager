@@ -2,10 +2,15 @@
 
 ## phpMyAdmin Database Account Details
 *Server* : sql9.freemysqlhosting.net
+
 *Name* : sql9288709
+
 *Username* : sql9288709
+
 *Password* : gGdDxMZUzg
+
 *Port number* : 3306
+
 http://www.phpmyadmin.co/
 
 ## [Website - tracking master](http://pluto.cse.msstate.edu/~an839/SE/Automagical-Restaurant-Manager/)
