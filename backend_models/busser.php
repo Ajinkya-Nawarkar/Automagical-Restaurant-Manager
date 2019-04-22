@@ -19,7 +19,13 @@
 
 		function getDirtyTables()
 		{
-			$unclean_tables = $this->database->get_unclean_tables_list();
+			$result = $this->database->get_unclean_tables_list();
+			
+			$unclean_tables = []; 
+    		while($row = $result->fetch_array())
+    		{
+    			array_push($unclean_tables, $row[0]);
+    		}
 
 			if (count($unclean_tables) > 0)
 			{
