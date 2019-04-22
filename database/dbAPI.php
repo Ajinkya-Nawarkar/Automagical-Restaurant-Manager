@@ -86,10 +86,12 @@
     public function get_OID_table_size() {
       $query = "SELECT COUNT(*) FROM ARM_Order";
       $result = $this->connection->query($query);
-      return $result;
+      $row = $result->fetch_assoc();
+      return $row['COUNT(*)'];
     }
     public function addOrderToDB($order) {
-      // gotta make sure this will work
+      echo $order->getOID();
+      print_r($order->getOrderItemList());
       
     }
     public function setOrderIsReady($oid, $ready) {
