@@ -111,9 +111,7 @@
           $st8 = 'unclean';
           break;
       }
-
       $myTid = $table->getTID();
-
       $query = "UPDATE ARM_Table SET state = '$st8' WHERE tid = '$myTid'";
       $this->connection->query($query);
     }
