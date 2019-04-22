@@ -10,10 +10,10 @@
 			private $itemListSerialized;
 			private $database;
 
-			function __construct()
+			function __construct($OID)
 			{
 				$this->database = new dbAPI;
-				$this->OID = getNewOID();
+				$this->OID = $OID;
 				$this->isReady = false;
 			}
 
@@ -27,19 +27,19 @@
 				return $this->isReady;
 			}
 
-			function getNewOID()
-			{
-				return $this->database->get_OID_table_size();
-			}
-
 			function getOrderItemList()
 			{
 				return $this->itemList;
-			}
+      }
+      
+      function getOrderItemListSerialized() {
+        return $this->itemListSerialized;
+      }
 
 			function setIsReady($ready)
 			{
 				$this->isReady = $ready;
+				$this->database->setOrderIsReady($OID, $ready);
 			}
 
 			function setOrderItemList($itemListSerialized)
