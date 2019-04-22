@@ -30,7 +30,11 @@
 			function getOrderItemList()
 			{
 				return $this->itemList;
-			}
+      }
+      
+      function getOrderItemListSerialized() {
+        return $this->itemListSerialized;
+      }
 
 			function setIsReady($ready)
 			{
