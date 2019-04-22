@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 
 <html>
-<<<<<<< HEAD
- <head>
-  <title>PHP Test</title>
- </head>
- <body>
- <?php echo '<p>Hello michaels World</p>'; ?>
- </body>
-=======
 <head>
 <title>FrontPage</title>
 <style> body {background-color: lightblue; margin-left: 50px;}</style>
@@ -67,5 +59,4 @@ function choosePage()
 }
 ?>
 </body>
->>>>>>> master
 </html>

@@ -37,7 +37,7 @@
     public function get_open_tables_list() {
       $query = "SELECT tid FROM ARM_Table WHERE state='open'";
       $result = $this->connection->query($query);
-      return $result->fetch_assoc();
+      return $result;
     }
     public function get_free_waiter_ID_list() {
       $query = "SELECT eid FROM ARM_Waiter WHERE occupied=0";
