@@ -90,8 +90,7 @@
       return $row['COUNT(*)'];
     }
     public function addOrderToDB($order) {
-      echo $order->getOID();
-      print_r($order->getOrderItemList());
+      // gotta make sure this will work
       
     }
     public function setOrderIsReady($oid, $ready) {
