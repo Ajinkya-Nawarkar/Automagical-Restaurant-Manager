@@ -86,11 +86,16 @@
     public function get_OID_table_size() {
       $query = "SELECT COUNT(*) FROM ARM_Order";
       $result = $this->connection->query($query);
-      return $result;
+      $row = $result->fetch_assoc();
+      return $row['COUNT(*)'];
     }
     public function addOrderToDB($order) {
       // gotta make sure this will work
-      
+      $oid = $order->getOID();
+      $isReady = $order->getIsReady();
+      $itemListSerialized = $order->getOrderItemListSerialized();
+      $query = "INSERT INTO `ARM_Order` (`oid`, `isReady`, `itemList`) VALUES (NULL, '$isReady', '$itemListSerialized');"
+      $this->connection->query($query);
     }
     public function setOrderIsReady($oid, $ready) {
       $query = "UPDATE `ARM_Order` SET `isReady` = '$ready' WHERE `ARM_Order`.`oid` = '$oid'";
@@ -102,18 +107,17 @@
 
       switch ($table->getState()) {
         case 0:
-          $st8 = "open";
+          $st8 = 'open';
           break;
         case 1:
-          $st8 = "reserved";
+          $st8 = 'reserved';
           break;
         case 2:
-          $st8 = "unclean";
+          $st8 = 'unclean';
           break;
       }
 
       $myTid = $table->getTID();
-
       $query = "UPDATE ARM_Table SET state = '$st8' WHERE tid = '$myTid'";
       $this->connection->query($query);
     }

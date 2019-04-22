@@ -66,6 +66,7 @@
 			{
 				$table_obj = new Table($TID);
 				$table_obj->setTableStateUnclean();
+				$this->database->set_waiter_table($this->EID, -1);
 			}
 
 	    }
