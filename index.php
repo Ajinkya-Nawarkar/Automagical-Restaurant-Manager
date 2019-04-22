@@ -24,41 +24,44 @@
 	</form>
 
 	<?php
-	require_once('database/dbAPI.php');
+		require_once('database/dbAPI.php');
 	           
-	 if(isset($_POST['submit']))
-	 {
-	    choosePage();
-	 }
-	 
-		function choosePage() 
+		if(isset($_POST['submit']))
 		{
-			$usernameErr = "";
-		  	if (empty($_POST['username']))
-		  	{
-		   		$usernameErr = "Please fill in existing username";
-		  	}
-		  	else
-		  	{
-		    	$username = isset($_POST['username']);
-		    	$db = new dbAPI;
-		    	$userInfo = $db->getEmployee($_POST['username']);
-		 
-		    	if($userInfo['position'] == "Manager")
-		        	echo ("<script>location.href='Manager.php'</script>");
-		    	else if($userInfo['position'] == "Host")
-		        	echo ("<script>location.href='frontend_models/host.php'</script>");
-		    	else if($userInfo['position'] == "Waiter")
-		        	echo ("<script>location.href='frontend_models/waiter.php'</script>");
-		    	else if($userInfo['position'] == "Cook")
-		       		echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
-		    	else if($userInfo['position'] == "Busser")
-		       		echo ("<script>location.href='frontend_models/busser.php'</script>");
-		    	else 
-		    		echo $usernameErr;
-		  	}
+		   	choosePage();
 		}
 	?>
 
 </body>
 </html>
+
+<?php
+	function choosePage() 
+	{
+		$usernameErr = "";
+	  	if (empty($_POST['username']))
+	  	{
+	   		$usernameErr = "Please fill in a username!";
+	  	}
+	  	else
+	  	{
+	    	$username = isset($_POST['username']);
+	    	$db = new dbAPI;
+	    	$userInfo = $db->getEmployee($_POST['username']);
+	 
+	    	if($userInfo['position'] == "Manager")
+	        	echo ("<script>location.href='frontend_models/manager.php'</script>");
+	    	else if($userInfo['position'] == "Host")
+	        	echo ("<script>location.href='frontend_models/host.php'</script>");
+	    	else if($userInfo['position'] == "Waiter")
+	        	echo ("<script>location.href='frontend_models/waiter.php'</script>");
+	    	else if($userInfo['position'] == "Cook")
+	       		echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
+	    	else if($userInfo['position'] == "Busser")
+	       		echo ("<script>location.href='frontend_models/busser.php'</script>");
+	    	else 
+	    		$usernameErr = "Invalid login. Please fill in a valid username!";
+	  	}
+	  	echo $usernameErr;
+	}
+?>
