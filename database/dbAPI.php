@@ -94,7 +94,7 @@
       $oid = $order->getOID();
       $isReady = $order->getIsReady();
       $itemListSerialized = $order->getOrderItemListSerialized();
-      $query = "INSERT INTO `ARM_Order` (`oid`, `isReady`, `itemList`) VALUES (NULL, '$isReady', '$itemListSerialized');"
+      $query = "INSERT INTO `ARM_Order` (`oid`, `isReady`, `itemList`) VALUES (NULL, '$isReady', '$itemListSerialized')";
       $this->connection->query($query);
     }
     public function setOrderIsReady($oid, $ready) {

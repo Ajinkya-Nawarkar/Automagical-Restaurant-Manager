@@ -60,9 +60,9 @@
                         <input type="submit" name="refresh" value="Refresh"/>
         <?php
             session_start();
-            # $eid = $_SESSION['waitereid'];
+            $eid = $_SESSION['waitereid'];
             include "../backend_models/waiter.php";
-            $waiter = new Waiter(1);
+            $waiter = new Waiter($eid);
             $myOrder = $waiter->initiateOrder();
             
             if (isset($_POST['orderSelect'])){
