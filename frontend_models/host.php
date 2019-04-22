@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../assets/host.css">
     </head>
     <body>
+    <form action = "" method="post">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -15,13 +16,7 @@
                         <?php
                         include "../backend_models/host.php";
                         $host = new Host(1);
-                        $table_list = $host->getOpenTables();
-                        $tids = [];
-                        $i = 0;
-                        while($row = $table_list->fetch_array()){
-                            $tids[$i] = $row[0];
-                            $i++;
-                        }
+                        $tids = $host->getOpenTables();
                         $take_five = [];
                         if(count($tids) > 5){
                             for($i = 0; $i < 5; $i++){
@@ -85,42 +80,82 @@
                     <label>Available Waiters:</label>
                     <div class="radio-butt">
                         <?php
-                        echo '<input type="radio" id="waiter1" name="waiterSelect" value="w1">
-                        <label for="waiter1">
-                            <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 5
-                        </label>';
-
-                        echo '<input type="radio" id="waiter2" name="waiterSelect" value="w2">
-                        <label for="waiter2">
-                            <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 8
-                        </label>';
-
-                        echo '<input type="radio" id="waiter3" name="waiterSelect" value="w3">
-                        <label for="waiter3">
-                            <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 18
-                        </label>'; 
+                        $wids = $host->getFreeWaiters();
+                        $wake_five = [];
+                        if(count($wids) > 5){
+                            for($i = 0; $i < 5; $i++){
+                                $wake_five[$i] = $wids[$i];
+                            }
+                        }
+                        elseif(count($wids) == 0){
+                            echo "No Free Waiters";
+                        }
+                        else{
+                            for($i = 0; $i < count($wids); $i++){
+                                $wake_five[$i] = $wids[$i];
+                            }
+                        }
                         
-                        echo '<input type="radio" id="waiter4" name="waiterSelect" value="w4">
-                        <label for="waiter4">
-                            <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 25
-                        </label>'; 
-                        
-                        echo '<input type="radio" id="waiter5" name="waiterSelect" value="w5">
-                        <label for="waiter5">
-                            <img src="../assets/waiter.png" class="radio-img"/>
-                            Waiter 13
-                        </label>'; 
+                        if(count($wids) != 0){
+                            if(count($wids) > 0){
+                                echo '<input type="radio" id="waiter1" name="waiterSelect" value="'.$wake_five[0].'">
+                                <label for="waiter1">
+                                    <img src="../assets/waiter.png" class="radio-img"/>
+                                    Waiter '.$wake_five[0].'
+                                </label>';
+                            }
+
+                            if(count($wids) > 1){
+                                echo '<input type="radio" id="waiter2" name="waiterSelect" value="'.$wake_five[1].'">
+                                <label for="waiter2">
+                                    <img src="../assets/waiter.png" class="radio-img"/>
+                                    Waiter '.$wake_five[1].'
+                                </label>';
+                            }
+
+                            if(count($wids) > 2){
+                                echo '<input type="radio" id="waiter3" name="waiterSelect" value="'.$wake_five[2].'">
+                                <label for="waiter3">
+                                    <img src="../assets/waiter.png" class="radio-img"/>
+                                    Waiter '.$wake_five[2].'
+                                </label>'; 
+                            }
+                            
+                            if(count($wids) > 3){
+                                echo '<input type="radio" id="waiter4" name="waiterSelect" value="'.$wake_five[3].'">
+                                <label for="waiter4">
+                                    <img src="../assets/waiter.png" class="radio-img"/>
+                                    Waiter '.$wake_five[3].'
+                                </label>'; 
+                            }
+                          
+                            if(count($wids) > 4){    
+                                echo '<input type="radio" id="waiter5" name="waiterSelect" value="'.$wake_five[4].'">
+                                <label for="waiter5">
+                                    <img src="../assets/waiter.png" class="radio-img"/>
+                                    Waiter '.$wake_five[4].'
+                                </label>'; 
+                            }
+                        }
                         ?>
                     </div>
                 </div>
+                             
                 <div class="col">
-                    <input type="submit"/>
+                        <input type="submit" name="submit" value="Get Selected Values" />
                 </div>
             </div>
         </div>
+    </form>
+    <?php
+        if (isset($_POST['submit'])) {
+            if (isset($_POST['tableSelect']) && isset($_POST['waiterSelect'])){
+                $host->assignTable($_POST['tableSelect'], $_POST['waiterSelect']);
+            }
+            else{
+                echo "Please select both a table and a waiter.";
+            }
+        }
+    ?>
     </body>
 </html>

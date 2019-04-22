@@ -50,7 +50,7 @@
       return $result;
     }
     public function get_free_waiter_ID_list() {
-      $query = "SELECT eid FROM ARM_Waiter WHERE occupied=0";
+      $query = "SELECT eid FROM ARM_Waiter WHERE isOccupied=0";
       $result = $this->connection->query($query);
       return $result;
     }
@@ -110,7 +110,8 @@
           $st8 = "unclean";
           break;
       }
-      $query = "UPDATE `ARM_Table` SET `state` = '$st8' WHERE `ARM_TABLE`.`tid` = '$table->getTID()'";
+      $myTid = $table->getTID();
+      $query = "UPDATE `ARM_Table` SET `state` = '$st8' WHERE `ARM_TABLE`.`tid` = 'myTid'";
       $this->connection->query($query);
     }
 
