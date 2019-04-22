@@ -46,7 +46,7 @@
 
 			function initiateOrder()
 			{
-				$OID = getNewOID();
+				$OID = $this->getNewOID();
 				$this->order = new Order($OID);
 			}   
 

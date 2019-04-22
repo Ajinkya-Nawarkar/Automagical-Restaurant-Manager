@@ -7,57 +7,104 @@
         <link rel="stylesheet" href="../assets/waiter.css">
     </head>
     <body>
+        <form action = "" method="post">
         <div class="container">
             <div class="row">
                 <div class="col-8">
                     <label>Menu:</label>
                     <div class="radio-butt">
-                        <input type="checkbox" id="burger" name="waiterSelect" value="Burger"/>
+                        <input type="checkbox" id="burger" name="orderSelect[]" value="Burger"/>
                         <label id="menu-item" for="burger">
                             <img src="../assets/burger.png" class="radio-img"/>
                             Burger
                         </label>
-                        <span>How many burgers?  <input type="number" id="burger-count" min="1" max="10" value="1"/></span>
+                        <span>How many burgers?  <input type="number" name="burger-count" min="1" max="10" value="1"/></span>
                         <br/>
 
-                        <input type="checkbox" id="Hotdog" name="waiterSelect" value="Hotdog">
+                        <input type="checkbox" id="Hotdog" name="orderSelect[]" value="Hotdog">
                         <label for="Hotdog">
                             <img src="../assets/hotdog.png" class="radio-img"/>
                             Hotdog
                         </label>
-                        <span>How many hotdogs?  <input type="number" id="hotdog-count" min="1" max="10" value="1"/></span>
+                        <span>How many hotdogs?  <input type="number" name="hotdog-count" min="1" max="10" value="1"/></span>
                         <br/>
 
-                        <input type="checkbox" id="Pizza" name="waiterSelect" value="Pizza">
+                        <input type="checkbox" id="Pizza" name="orderSelect[]" value="Pizza">
                         <label for="Pizza">
                             <img src="../assets/pizza.png" class="radio-img"/>
                             Pizza
                         </label> 
-                        <span>How many pizzas?  <input type="number" id="pizza-count" min="1" max="10" value="1"/></span>
+                        <span>How many pizzas?  <input type="number" name="pizza-count" min="1" max="10" value="1"/></span>
                         <br/>
                         
-                        <input type="checkbox" id="Chicken" name="waiterSelect" value="Chicken">
+                        <input type="checkbox" id="Chicken" name="orderSelect[]" value="Chicken">
                         <label for="Chicken">
                             <img src="../assets/chicken.png" class="radio-img"/>
                             Chicken
                         </label> 
-                        <span>How many chickens?  <input type="number" id="chicken-count" min="1" max="10" value="1"/></span>
+                        <span>How many chickens?  <input type="number" name="chicken-count" min="1" max="10" value="1"/></span>
                         <br/>
                         
-                        <input type="checkbox" id="Salad" name="waiterSelect" value="Salad">
+                        <input type="checkbox" id="Salad" name="orderSelect[]" value="Salad">
                         <label for="Salad">
                             <img src="../assets/salad.png" class="radio-img"/>
                             Salad
                         </label> 
-                        <span>How many salads?  <input type="number" id="salad-count" min="1" max="10" value="1"/></span>
+                        <span>How many salads?  <input type="number" name="salad-count" min="1" max="10" value="1"/></span>
                     </div>
                 </div>
                 <div class="col-4">
-                        <button>Submit Order</button>
-                        <button>Print Receipt</button>
-                        <button>Clear Table</button>
+                        <input type="submit" name="order" value="Submit Order"/>
+                        <input type="submit" name="receipt" value="Print Receipt"/>
+                        <input type="submit" name="clear" value="Clear Table"/>
+                        <input type="submit" name="refresh" value="Refresh"/>
+        <?php
+            session_start();
+            # $eid = $_SESSION['waitereid'];
+            include "../backend_models/waiter.php";
+            $waiter = new Waiter(1);
+            $myOrder = $waiter->initiateOrder();
+            
+            if (isset($_POST['orderSelect'])){
+                $orders = $_POST['orderSelect'];
+                foreach($orders as $order){
+                    if ($order == "Burger"){
+                        $bCount = $_POST['burger-count'];
+                        for($i = 0; $i < $bCount; $i++){
+                            $waiter->addItemToOrder("Burger");
+                        }
+                    }
+                    if ($order == "Hotdog"){
+                        $hCount = $_POST['hotdog-count'];
+                        for($i = 0; $i < $hCount; $i++){
+                            $waiter->addItemToOrder("Hotdog");
+                        }
+                    }
+                    if ($order == "Pizza"){
+                        $pCount = $_POST['pizza-count'];
+                        for($i = 0; $i < $pCount; $i++){
+                            $waiter->addItemToOrder("Pizza");
+                        }
+                    }
+                    if ($order == "Chicken"){
+                        $cCount = $_POST['chicken-count'];
+                        for($i = 0; $i < $cCount; $i++){
+                            $waiter->addItemToOrder("Chicken");
+                        }
+                    }
+                    if ($order == "Salad"){
+                        $sCount = $_POST['salad-count'];
+                        for($i = 0; $i < $sCount; $i++){
+                            $waiter->addItemToOrder("Salad");
+                        }
+                    }
+                }
+                $waiter->createOrder();
+            }
+        ?>
                 </div>
             </div>
         </div>
+        </form>
     </body>
 </html>
