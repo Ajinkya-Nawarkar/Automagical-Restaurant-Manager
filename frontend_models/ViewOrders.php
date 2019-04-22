@@ -32,7 +32,10 @@ else{
 $itemListDeserialized = unserialize($order['itemList']);
 echo "Item for order #" . $OID . " : ";
 echo "<br><br>";
-echo $itemListDeserialized;
+for ($i = 0; $i < sizeof($itemListDeserialized); $i++)
+{
+    echo "Item " . $i . " : " . $itemListDeserialized[$i] . "<br>";
+}
 
 
 if(isset($_POST['ready']))
