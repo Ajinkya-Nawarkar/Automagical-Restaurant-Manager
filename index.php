@@ -17,24 +17,35 @@
   Username: <br>
   <input type = "text" name = "username" style = "background-color:lightblue;">
   <br>
+<<<<<<< HEAD
   Password: <br>
   <input type = "text" name = "password" style = "background-color:lightblue;">
   <br><br>
   <input type = "submit" value = "Login" name = "submit">
   <br><br>
   testing: 0
+=======
+  <br>
+  <input type = "submit" value = "Login" name = "submit">
+  <br><br>
+>>>>>>> master
   <br><br>
 </form>
 
 <?php
  if(isset($_POST['submit']))
  {
+<<<<<<< HEAD
   choosePage();
+=======
+    choosePage();
+>>>>>>> master
  }
  
 
 function choosePage() 
 {
+<<<<<<< HEAD
  $username = isset($_POST['username']);
  $usernameErr = "";
  if (empty($_POST['username']))
@@ -85,3 +96,33 @@ function choosePage()
 ?>
 </body>
 </html>
+=======
+  $username = isset($_POST['username']);
+  $usernameErr = "";
+  if (empty($_POST['username']))
+  {
+   $usernameErr = "Please fill in existing username";
+  }
+  else
+  {
+    $db = new dbAPI;
+    $userInfo = $db->getEmployee($username);
+ 
+ 
+    if($userInfo['position'] == "Manager")
+        echo ("<script>location.href='Manager.php'</script>");
+    if($userInfo['position'] == "Host")
+        echo ("<script>location.href='frontend_models/host.php'</script>");
+    else if($userInfo['position'] == "Waiter")
+        echo ("<script>location.href='frontend_models/waiter.php'</script>");
+    else if($userInfo['position'] == "Cook")
+        echo ("<script>location.href='frontend_models/ViewOrders.php'</script>");
+    else if($userInfo['position'] == "Busser")
+       echo ("<script>location.href='frontend_models/busser.php'</script>");
+    else echo $usernameErr;
+  }
+}
+?>
+</body>
+</html>
+>>>>>>> master

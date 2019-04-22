@@ -1,8 +1,8 @@
 <?php
 
-	require_once(dirname(__DIR__)."/Database/dbAPI.php");
-	require_once(dirname(__DIR__)."/Backend_Models/employee.php");
-	require_once(dirname(__DIR__)."/Backend_Models/order.php");
+	require_once(dirname(__DIR__)."/database/dbAPI.php");
+	require_once(dirname(__DIR__)."/backend_models/employee.php");
+	require_once(dirname(__DIR__)."/backend_models/order.php");
 
 	class Cook extends Employee
 		{
