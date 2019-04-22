@@ -18,6 +18,11 @@
 	    		$this->database = new dbAPI;
 	    	}
 
+	    	function getEID()
+	    	{
+	    		return $this->EID;
+	    	}
+
 	    	function getIsOccupied()
 	    	{
 	    		return $this->isOccupied;  
@@ -26,6 +31,7 @@
 	    	function setIsOccupied($occupied)
 	    	{
 	    		$this->isOccupied = $occupied; 
+	    		$this->database->setWaiterIsOccupied($this);
 	    	}
 
 	    	function getTableAssignment()
