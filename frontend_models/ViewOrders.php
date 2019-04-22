@@ -15,6 +15,10 @@
 <?php
 require_once('backend_models/cook.php');
 
+$things1 = new Cook;
+$order = $things1->getRecentOrder();
+$OID = $order['oid'];
+
 while ($order == -1)
 {
     check_for_new_orders();
@@ -22,9 +26,6 @@ while ($order == -1)
 
 function check_for_new_orders()
 {
-    $things1 = new Cook;
-    $order = $things1->getRecentOrder();
-    $OID = $order['oid'];
     while (isset($_POST['button']) == 0)
     {
         $itemListDeserialized = deserialize($order['itemList']);
