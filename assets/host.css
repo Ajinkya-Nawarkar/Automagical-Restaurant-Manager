@@ -1,0 +1,46 @@
+body {
+  background-color: lightblue;
+}
+.container{
+    min-width:100%;
+}
+
+.vert-select{
+     display:block;
+     margin:25px 0 0 0;
+     padding:0;
+     list-style-type:none;
+}
+
+.radio-butt {
+  margin: 10px;
+}
+
+.radio-butt input[type="radio"] {
+    display:none; 
+}
+
+.radio-butt label {
+    display:block;
+    background-color:#ddd;
+    padding: 10px 20px;
+    font-family:Arial;
+    font-size:16px;
+    border: 2px solid #444;
+    border-radius: 10px;    
+}
+
+.radio-butt label:hover {
+  background-color: #dfd;
+}
+
+.radio-butt input[type="radio"]:checked + label { 
+    background-color:#bfb;
+    border-color: #4c4;
+}
+
+.radio-img{
+    max-width:80px;
+    margin-right:20px;
+}
+

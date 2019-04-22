@@ -18,12 +18,24 @@
 
 	    	function getOpenTables()
 	    	{
-	    		return $this->database->get_open_tables_list();
+	    		$result = $this->database->get_open_tables_list();
+	    		$tid_array = []; 
+	    		while($row = $result->fetch_array())
+	    		{
+	    			array_push($tid_array, $row[0]);
+	    		}
+	    		return $tid_array; 
 	    	}
 
 	    	function getFreeWaiters()
 	    	{
-	    		return $this->database->get_free_waiter_ID_list();
+	    		$result = $this->database->get_free_waiter_ID_list();
+	    		$eid_array = []; 
+	    		while($row = $result->fetch_array())
+	    		{
+	    			array_push($eid_array, $row[0]);
+	    		}
+	    		return $eid_array; 
 	    	}
 
 	    	function assignTable($open_table_TID, $free_waiter_EID)
