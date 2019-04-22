@@ -110,7 +110,8 @@
           $st8 = "unclean";
           break;
       }
-      $query = "UPDATE `ARM_Table` SET `state` = '$st8' WHERE `ARM_TABLE`.`tid` = '$table->getTID()'";
+      $tid = $table->getTID();
+      $query = "UPDATE `ARM_Table` SET `state` = '$st8' WHERE `ARM_TABLE`.`tid` = '$tid'";
       $this->connection->query($query);
     }
 
