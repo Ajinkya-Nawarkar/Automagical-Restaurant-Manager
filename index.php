@@ -60,7 +60,7 @@
             else if($userInfo['position'] == "Waiter")
             { 
                 $_SESSION['waitereid'] = $userInfo['eid'];
-                header("Location:frontend_models/watier.php");
+                header("Location:frontend_models/waiter.php");
                 echo ("<script>location.href='frontend_models/waiter.php'</script>");
             }
             else if($userInfo['position'] == "Cook")
